@@ -1,51 +1,46 @@
-import { useState } from "react"
-
-const LoginForm = () => {}
-    const [values, setValues] = useState({
-        email: "",
-        password:""
-    });
-
-
-    const [error, setError] = useState(undefined);
-
-    const handleSubmit = async (event) => {
-        event.preventDefault();
-        
-        
-
-        try{
-            const response = await axios.post("/login", values);
-            console.log(response.data);
-        }catch(error){
-            console.error(error);
-            setError("Ha ocurrido un error, intente otra vez");
-        }
-    };
-{/*
-        return(
-            <form  onSubmit={handleSubmit}>
-            <><div className="field">
-                    <label htmlFor="email">Email</label>
-                    <input onChange={(e) => setValues({ ...values, email: e.target.value })}
-                        value={values.email}
-                        type="text"
-                        name="email" />
-                </div><div className="field">
-                        <label htmlFor="password">Contraseña</label>
-                        <input onChange={(e) => setValues({ ...values, password: e.target.value })}
-                            value={values.password}
-                            type="password"
-                            name="password" 
-                            />
-                            </div>
-
-                            (error ? <p className="error">{error}</p> : <></>)
-                            <button type="submit">Submit</button>
-                        </form>
-        );
-};
-      
-*/}
-
-
+import React, { Component } from 'react'
+export default class Login extends Component {
+  render() {
+    return (
+      <form>
+        <h3>Inicio de Sesion</h3>
+        <div className="mb-3">
+          <label>Correo Electronico</label>
+          <input
+            type="correo electronico"
+            className="form-control"
+            placeholder="Ingrese Correo"
+          />
+        </div>
+        <div className="mb-3">
+          <label>Contraseña</label>
+          <input
+            type="Contraseña"
+            className="form-control"
+            placeholder="Ingrese Contraseña"
+          />
+        </div>
+        <div className="mb-3">
+          <div className="custom-control custom-checkbox">
+            <input
+              type="checkbox"
+              className="custom-control-input"
+              id="customCheck1"
+            />
+            <label className="custom-control-label" htmlFor="customCheck1">
+              Recordar
+            </label>
+          </div>
+        </div>
+        <div className="d-grid">
+          <button type="submit" className="btn btn-primary">
+            Iniciar
+          </button>
+        </div>
+        <p className="forgot-password text-right">
+          Olvidaste <a href="#">la Contraseña?</a>
+        </p>
+      </form>
+    )
+  }
+}
